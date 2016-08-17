@@ -30,5 +30,8 @@ RUN bundle exec rake db:migrate \
     && bundle exec rake tmp:sessions:clear
 
 # Configure Backlogs
-RUN bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=ja \
-    && bundle exec rake redmine:backlogs:install story_trackers=ストーリー task_tracker=タスク
+RUN bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=en \
+    && bundle exec rake redmine:backlogs:install story_trackers=Story task_tracker=Task
+
+#RUN bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=ja \
+#    && bundle exec rake redmine:backlogs:install story_trackers=ストーリー task_tracker=タスク
