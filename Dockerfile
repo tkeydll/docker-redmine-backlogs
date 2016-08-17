@@ -2,7 +2,7 @@ FROM redmine:3.3
 
 WORKDIR /usr/src/redmine
 
-# Init redmine.
+# Initialize redmine.
 RUN /docker-entrypoint.sh rails
 
 # Install require components.
@@ -16,7 +16,7 @@ RUN bundle install --without development test \
     && gem install holidays --version 1.0.3 \
     && gem install holidays
 
-# Install backlogs plugins.
+# Install Backlogs.
 RUN cd ./plugins \ 
     && git clone https://github.com/tkeydll/redmine_backlogs.git \
     && cd ./redmine_backlogs \
@@ -29,4 +29,5 @@ RUN bundle exec rake db:migrate \
     && bundle exec rake tmp:cache:clear \
     && bundle exec rake tmp:sessions:clear
 
+# Configure Backlogs
 # RUN bundle exec rake redmine:backlogs:install
