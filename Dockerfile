@@ -35,5 +35,3 @@ RUN bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG
 
 #RUN bundle exec rake redmine:load_default_data RAILS_ENV=production REDMINE_LANG=ja \
 #    && bundle exec rake redmine:backlogs:install story_trackers=ストーリー task_tracker=タスク
-
-EXPOSE 80
